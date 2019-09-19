@@ -7,6 +7,11 @@ import org.kie.api.runtime.rule.FactHandle;
 import com.myspace.*;
 
 public class runRules {
+	
+	public runRules() {
+		
+	}
+	
 	public static void main(String[] args) {
 		try {
 			KieServices kieServices = KieServices.Factory.get();
@@ -87,5 +92,22 @@ public class runRules {
 			t.printStackTrace();
 		}
 		
+	}
+	public void fireRules(Customer c, Product p, Shop s) {
+		try {
+			KieServices kieServices = KieServices.Factory.get();
+			KieContainer kContainer = kieServices.getKieClasspathContainer();
+			
+			KieSession kSession = kContainer.newKieSession("session-rules");
+			
+			FactHandle factHandle;
+			factHandle = kSession.insert(p);
+			factHandle = kSession.insert(c);
+			factHandle = kSession.insert(s);
+			
+			kSession.fireAllRules();
+		} catch (Throwable  t) {
+			t.printStackTrace();
+		}
 	}
 }
