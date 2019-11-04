@@ -1,0 +1,10 @@
+package rules;
+
+import com.sam.Loan.*;
+
+rule "Test on IDE"
+	when
+		$ai : ApplicantInfo(ofAge == true)
+	then
+		System.out.println("Hello you are of age");
+end
