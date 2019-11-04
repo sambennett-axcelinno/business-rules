@@ -7,4 +7,14 @@ rule "Test on IDE"
 		$ai : ApplicantInfo(ofAge == true)
 	then
 		System.out.println("Hello you are of age");
+		drools.setFocus("Hello");
 end
+
+rule "Test fucus"
+ruleflow-group "Hello"
+	when
+	
+	then
+		System.out.println("Focus working");
+end
+
