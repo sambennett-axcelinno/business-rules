@@ -19,3 +19,9 @@ ruleflow-group "Hello"
 		//testing 2
 end
 
+rule "new rule"
+	when
+	
+	then
+	
+end
