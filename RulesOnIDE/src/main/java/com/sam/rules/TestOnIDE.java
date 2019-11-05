@@ -1,5 +1,6 @@
 package com.sam.rules;
 
+import org.drools.core.common.InternalAgenda;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -21,7 +22,7 @@ public class TestOnIDE {
 			lInfo.setAmount(500.0);
 			lInfo.setLength(12);
 			person.setAge(30);
-			person.setTaxScore(610);
+			person.setTaxScore(810);
 			person.setlInfo(lInfo);
 			person.setSalary(100000.00);
 			aInfo.setPerson(person);
@@ -31,6 +32,8 @@ public class TestOnIDE {
 			KieSession kSession = kContainer.newKieSession("ksession-rule");
 			FactHandle aiFactHandle;
 			aiFactHandle = kSession.insert(aInfo);
+			kSession.fireAllRules();
+			kSession.getAgenda().getAgendaGroup("approve").setFocus(); /*This is  how you can get a  specific ruleflow group to fire in a ksession without setting focus in drools*/
 			kSession.fireAllRules();
 			System.out.println("Rules fired!!!");
 		}
