@@ -37,5 +37,17 @@ salience 10
 		$ai : ApplicantInfo()
 		$p : Person(taxScore >= 800) from $ai.person
 	then
-		System.out.println("You are approved");
+		System.out.println("You are approved by rule great tax score");
+end
+
+rule "good tax score and not asking for too  much"
+ruleflow-group "approve"
+activation-group "approval"
+salience 9
+	when
+		$ai : ApplicantInfo()
+		$p : Person(taxScore  >= 600) from $ai.person
+		$li : LoanInfo(amount <= 1000.00) from $p.lInfo
+	then
+		System.out.println("You are approved bygood tax score and not asking for too much");
 end
