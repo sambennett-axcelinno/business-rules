@@ -53,6 +53,9 @@ salience 9
 end
 
 rule "Salary is high"
+ruleflow-group "approve"
+activation-group "approval"
+salience 8
 	when
 		$ai : ApplicantInfo()
 		$p : Person(taxScore >= 600, salary >= 100000.00) from $ai.person
