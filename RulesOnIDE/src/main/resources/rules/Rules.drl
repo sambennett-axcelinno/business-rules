@@ -51,3 +51,10 @@ salience 9
 	then
 		System.out.println("You are approved bygood tax score and not asking for too much");
 end
+
+rule "Salary is high"
+	when
+	
+	then
+	
+end
