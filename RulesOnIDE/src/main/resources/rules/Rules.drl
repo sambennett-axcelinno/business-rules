@@ -21,7 +21,7 @@ end
 
 rule "new rule"
 	when
-	
+		$ai : ApplicantInfo(ofAge == true)
 	then
 		System.out.println("Hello  World");
 end
