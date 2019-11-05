@@ -23,5 +23,5 @@ rule "new rule"
 	when
 	
 	then
-	
+		System.out.println("Hello  World");
 end
