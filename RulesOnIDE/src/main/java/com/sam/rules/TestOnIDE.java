@@ -1,14 +1,9 @@
 package com.sam.rules;
 
-import org.drools.core.common.InternalAgenda;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
-import org.kie.api.KieServices; 
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
-
 import com.sam.Loan.*;
 
 public class TestOnIDE {
@@ -22,7 +17,7 @@ public class TestOnIDE {
 			lInfo.setAmount(500.0);
 			lInfo.setLength(12);
 			person.setAge(30);
-			person.setTaxScore(810);
+			person.setTaxScore(610);
 			person.setlInfo(lInfo);
 			person.setSalary(100000.00);
 			aInfo.setPerson(person);
