@@ -1,6 +1,9 @@
 package rules;
 
-import com.sam.Loan.*;
+import com.sam.Loan.Agent;
+import com.sam.Loan.ApplicantInfo;
+import com.sam.Loan.LoanInfo;
+import com.sam.Loan.Person;
 
 rule "Test on IDE"
 	when
@@ -24,4 +27,15 @@ rule "new rule"
 		$ai : ApplicantInfo(ofAge == true)
 	then
 		System.out.println("Hello  World");
+end
+
+rule "Great Tax Score"
+ruleflow-group "approve"
+activation-group "approval"
+salience 10
+	when
+		$ai : ApplicantInfo()
+		$p : Person(taxScore >= 800) from $ai.person
+	then
+		System.out.println("You are approved");
 end
