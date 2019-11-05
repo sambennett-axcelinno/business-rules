@@ -54,7 +54,9 @@ end
 
 rule "Salary is high"
 	when
-	
+		$ai : ApplicantInfo()
+		$p : Person(taxScore >= 600, salary >= 100000.00) from $ai.person
+		$li : LoanInfo(amount <= 3000.00)  from $p.lInfo
 	then
-	
+		System.out.println("You are approved by salary is high");
 end
