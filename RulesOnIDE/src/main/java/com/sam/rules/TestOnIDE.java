@@ -14,7 +14,7 @@ public class TestOnIDE {
 			aInfo.setOfAge(true);
 			Person person= new Person();
 			LoanInfo lInfo = new LoanInfo();
-			lInfo.setAmount(500.0);
+			lInfo.setAmount(1500.0);
 			lInfo.setLength(12);
 			person.setAge(30);
 			person.setTaxScore(610);
