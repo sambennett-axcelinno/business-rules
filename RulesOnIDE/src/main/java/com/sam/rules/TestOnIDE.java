@@ -14,10 +14,10 @@ public class TestOnIDE {
 			aInfo.setOfAge(true);
 			Person person= new Person();
 			LoanInfo lInfo = new LoanInfo();
-			lInfo.setAmount(1500.0);
+			lInfo.setAmount(500.0);
 			lInfo.setLength(12);
 			person.setAge(30);
-			person.setTaxScore(610);
+			person.setTaxScore(810);
 			person.setlInfo(lInfo);
 			person.setSalary(100000.00);
 			aInfo.setPerson(person);
@@ -29,6 +29,8 @@ public class TestOnIDE {
 			aiFactHandle = kSession.insert(aInfo);
 			kSession.fireAllRules();
 			kSession.getAgenda().getAgendaGroup("approve").setFocus(); /*This is  how you can get a  specific ruleflow group to fire in a ksession without setting focus in drools*/
+			kSession.fireAllRules();
+			kSession.getAgenda().getAgendaGroup("function").setFocus();
 			kSession.fireAllRules();
 			System.out.println("Rules fired!!!");
 		}

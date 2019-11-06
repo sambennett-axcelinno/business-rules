@@ -5,6 +5,24 @@ import com.sam.Loan.ApplicantInfo;
 import com.sam.Loan.LoanInfo;
 import com.sam.Loan.Person;
 
+function boolean Test(ApplicantInfo ai, Person p, LoanInfo li) {
+	if (p.getTaxScore() >= 800 && li.getAmount() <= 1000.00) {
+		return true;
+	}
+	return false;
+}
+
+rule "Test Function and eval"
+ruleflow-group "function"
+	when
+		$ai : ApplicantInfo()
+		$p : Person() from $ai.person
+		$li : LoanInfo() from $p.lInfo
+		eval(Test($ai, $p, $li))
+	then
+		System.out.println("Approved from Function");
+end
+
 rule "Test on IDE"
 	when
 		$ai : ApplicantInfo(ofAge == true)
